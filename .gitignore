@@ -1,0 +1,27 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+**/node_modules
+
+# misc
+.env
+.log
+**/*.log.*
+
+# IDE
+**/.idea
+*.iml
+
+# system
+.DS_Store
+
+.env
+
+# CircleCI
+*.circle-cache-key
+
+.vscode/launch.json
+api/.vscode/*
+api/.vscode
+api/.nvmrc
+.nvmrc
