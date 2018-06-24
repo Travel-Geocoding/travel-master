@@ -1,0 +1,27 @@
+{
+  "name": "master",
+  "version": "1.0.0",
+  "description": "Master Server",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "redis:start": "docker container run --name travel-redis --publish 6379:6379 --detach --rm redis",
+    "redis:stop": "docker stop travel-redis"
+  },
+  "author": "Antoine Boileau",
+  "license": "ISC",
+  "dependencies": {
+    "bookshelf": "^0.13.3",
+    "bull": "^3.4.2",
+    "cli-progress": "^2.0.0",
+    "dotenv": "^6.0.0",
+    "hapi": "^17.5.1",
+    "hapi-pino": "^4.0.4",
+    "knex": "^0.13.0",
+    "papaparse": "^4.5.0",
+    "pg": "^7.4.3",
+    "request": "^2.87.0",
+    "request-promise-native": "^1.0.5",
+    "yargs": "^11.0.0"
+  }
+}
