@@ -5,6 +5,11 @@
   "main": "server.js",
   "scripts": {
     "test": "test",
+    "db:new": "node ./scripts/create-database.js",
+    "db:create": "node ./node_modules/knex/bin/cli.js --knexfile db/knexfile.js migrate:make $migrationname",
+    "db:migrate": "node ./node_modules/knex/bin/cli.js --knexfile db/knexfile.js migrate:latest",
+    "db:delete": "node ./scripts/drop-database.js",
+    "db:reset": "npm run db:delete && npm run db:new && npm run db:migrate",
     "redis:start": "docker container run --name travel-redis --publish 6379:6379 --detach --rm redis",
     "redis:stop": "docker stop travel-redis"
   },
