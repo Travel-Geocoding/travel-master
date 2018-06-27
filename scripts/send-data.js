@@ -78,7 +78,6 @@ function main() {
   const filePath = argv.file;
   const isLocalRequest = argv.localhost;
 
-  console.log(argv);
   const progressBar = new CLIProgressBar.Bar({}, CLIProgressBar.Presets.rect);
 
   // ETAPE 1
