@@ -33,8 +33,10 @@ const argv = require('yargs')
   .argv;
 
 function buildRequestObject({ isLocalRequest, token, payload }) {
+  const baseUrl = isLocalRequest ? 'http://localhost:5000' : 'https://travel-master.scalingo.io.';
+
   return {
-    baseUrl: 'http://localhost:5000',
+    baseUrl,
     url: '/address',
     method: 'POST',
     headers: {
