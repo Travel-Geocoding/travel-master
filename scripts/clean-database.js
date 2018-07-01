@@ -1,8 +1,11 @@
+require('dotenv').config();
+const REDIS_URL = process.env.SCALINGO_REDIS_URL;
+
 const knexConfig = require('../db/knexfile');
 const settings = require('../lib/settings');
 
 const Redis = require('ioredis');
-const redis = new Redis();
+const redis = new Redis(REDIS_URL);
 
 const knex = require('knex')(knexConfig[settings.environment]);
 const tableNames = ['locations'];
