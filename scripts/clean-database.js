@@ -15,7 +15,7 @@ function main() {
     return knex(tableNameToClean)
       .del()
       .then((nbOfRowsDeleted) => {
-        console.log(`${nbOfRowsDeleted} deleted in ${tableNameToClean} table`);
+        console.log(` > pg > ${nbOfRowsDeleted} rows deleted in ${tableNameToClean} table`);
       });
   }))
     .then(() => {
@@ -24,13 +24,13 @@ function main() {
         const stream = redis.scanStream();
 
         stream.on('data', function(resultKeys) {
-          console.log(`redis keys deleted: ${resultKeys.length}`);
+          console.log(` > redis > keys deleted: ${resultKeys.length}`);
           const pipeline = redis.pipeline();
           pipeline.unlink(resultKeys).exec();
         });
 
         stream.on('end', function() {
-          console.log('Redis cleaning done');
+          console.log(' > redis > cleaning done');
           resolve();
         });
       });

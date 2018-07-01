@@ -33,18 +33,6 @@ const CSV_HEADER_ORDERED_LIST = [
 const CSV_DELIMITATOR = ';';
 const CSV_EOL = '\r\n';
 
-/*const i = {
-  id: 'C0836',
-  name: 'PETIT CASINO',
-  address: '16 AVENUE RUESSIUM',
-  postalCode: '43350',
-  municipality: 'ST PAULIEN',
-  matchType: null,
-  matchedAddress: null,
-  latitude: null,
-  longitude: null,
-};*/
-
 const argv = require('yargs')
   .option('localhost', {
     alias: 'L',
@@ -65,8 +53,10 @@ const argv = require('yargs')
   .argv;
 
 function buildRequestObject({ isLocalRequest, token, pageNumber }) {
+  const baseUrl = isLocalRequest ? 'http://localhost:5000' : 'https://travel-master.scalingo.io';
+
   return {
-    baseUrl: 'http://localhost:5000',
+    baseUrl,
     url: '/address',
     method: 'GET',
     headers: {
