@@ -6,6 +6,7 @@
   "scripts": {
     "test": "test",
     "db:new": "node ./scripts/create-database.js",
+    "db:clean": "node ./scripts/clean-database.js",
     "db:create": "node ./node_modules/knex/bin/cli.js --knexfile db/knexfile.js migrate:make $migrationname",
     "db:migrate": "node ./node_modules/knex/bin/cli.js --knexfile db/knexfile.js migrate:latest",
     "db:delete": "node ./scripts/drop-database.js",
@@ -22,6 +23,7 @@
     "dotenv": "^6.0.0",
     "hapi": "^17.5.1",
     "hapi-pino": "^4.0.4",
+    "ioredis": "^3.2.2",
     "json2csv": "^4.1.5",
     "knex": "^0.13.0",
     "moment": "^2.22.2",
