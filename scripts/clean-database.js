@@ -23,14 +23,16 @@ function main() {
       return new Promise((resolve, reject) => {
         const stream = redis.scanStream();
 
+        let keyDeleted = 0;
+
         stream.on('data', function(resultKeys) {
-          console.log(` > redis > keys deleted: ${resultKeys.length}`);
+          keyDeleted = keyDeleted + resultKeys.length;
           const pipeline = redis.pipeline();
           pipeline.unlink(resultKeys).exec();
         });
 
         stream.on('end', function() {
-          console.log(' > redis > cleaning done');
+          console.log(` > redis > keys deleted: ${keyDeleted}`);
           resolve();
         });
       });

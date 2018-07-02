@@ -106,14 +106,12 @@ function main() {
     delimiter: CSV_DELIMITATOR,
     eol: CSV_EOL,
     withBOM: true,
-    excelStrings: true,
   });
   const parserWithoutHeader = new Json2csvParser({
     fields: CSV_HEADER_ORDERED_LIST,
     delimiter: CSV_DELIMITATOR,
     eol: CSV_EOL,
     header: false,
-    excelStrings: true,
   });
 
   let totalPageCount = 0;
