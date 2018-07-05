@@ -8,7 +8,7 @@ const Redis = require('ioredis');
 const redis = new Redis(REDIS_URL);
 
 const knex = require('knex')(knexConfig[settings.environment]);
-const tableNames = ['locations'];
+const tableNames = ['locations', 'routes'];
 
 function main() {
   Promise.all(tableNames.map((tableNameToClean) => {
