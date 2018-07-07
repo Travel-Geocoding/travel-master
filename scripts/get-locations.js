@@ -135,7 +135,7 @@ function main() {
     .then((firstPartOfCSV) => {
       const filePath = createFile({ folderPath, firstPartOfCSV });
 
-      console.log('Les données de certifications sont dans le fichier :' + filePath);
+      console.log('Les données de localisation sont dans le fichier :' + filePath);
 
       progressBar.start(totalPageCount, 1);
 
