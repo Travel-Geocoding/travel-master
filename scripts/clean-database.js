@@ -8,10 +8,31 @@ const Redis = require('ioredis');
 const redis = new Redis(REDIS_URL);
 
 const knex = require('knex')(knexConfig[settings.environment]);
-const tableNames = ['locations', 'routes'];
+
+function tableNames(routesOnly) {
+  if (routesOnly) {
+    return ['routes'];
+  } else {
+    return ['locations', 'routes'];
+  }
+}
+
+const argv = require('yargs')
+  .option('routes', {
+    alias: 'R',
+    describe: 'clean only routes table',
+  })
+  .boolean('routes')
+  .help()
+  .wrap(120)
+  .argv;
+
 
 function main() {
-  Promise.all(tableNames.map((tableNameToClean) => {
+
+  const routes = argv.routes;
+
+  Promise.all(tableNames(routes).map((tableNameToClean) => {
     return knex(tableNameToClean)
       .del()
       .then((nbOfRowsDeleted) => {
