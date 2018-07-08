@@ -146,9 +146,12 @@ function main() {
       return buildRequestObject({ isLocalRequest, token, pageNumber: 1 });
     })
     .then((requestConfig) => {
+      console.log('Lancement de la première requête');
       return request(requestConfig);
     })
     .then((RoutePageResult) => {
+      console.log('Fin de la première requête');
+
       totalPageCount = RoutePageResult.page.totalPageCount;
       totalRowCount = RoutePageResult.page.totalRowCount;
 
