@@ -7,6 +7,7 @@
     "test": "test",
     "db:new": "node ./scripts/create-database.js",
     "db:clean": "node ./scripts/clean-database.js",
+    "db:copyGoogle": "node ./scripts/copy-google-status.js",
     "db:create": "node ./node_modules/knex/bin/cli.js --knexfile db/knexfile.js migrate:make $migrationname",
     "db:migrate": "node ./node_modules/knex/bin/cli.js --knexfile db/knexfile.js migrate:latest",
     "db:delete": "node ./scripts/drop-database.js",
